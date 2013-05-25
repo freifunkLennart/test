@@ -1,0 +1,144 @@
+% V0.1
+% von lennart
+% alles noch Baustelle.
+
+\documentclass[%
+paper=A4, % Stellt auf A4-Papier ein
+pagesize, % Diese Option reicht die Papiergröße an
+        % alle Ausgabeformate weiter
+DIV=calc, % Errechnet einen guten Satzspiegel
+% BCOR=1cm, % Weil bei mir immer 1cm in der Bindung
+            % der Klemmmappe verschwindet
+%smallheadings,% Für etwas kleinere Überschriften
+ngerman,   % Neue Rechtschreibung, d.\,h. (Silbentrennung)
+16pt,
+parskip
+]{scrartcl}  %
+% http://homepage.ruhr-uni-bochum.de/georg.verweyen/pakete.html
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% BEGIN Pakete Laden %%%
+%\usepackage{lmodern} %sollen angeblich bessere schriften sein
+\usepackage[utf8]{inputenc}  %Umlaute,...
+\usepackage[T1]{fontenc} %Umlaute und Akzente in europäischer EC-Variante
+\usepackage{textcomp} %Sonderzeichen
+\usepackage{ellipsis} % behebt einen fehler mit punkten. nicht geprüft. google
+\usepackage{fixltx2e}  % Verbessert einige Kernkompetenzen von LaTeX2e
+
+\usepackage{graphicx} %Grafiken einbinden
+\usepackage{subfigure} %Einbinden von Grafiken nebeneinander
+\usepackage{float} %Grafikpositionierungsoptionen t c b h H
+
+\usepackage{soul} %Texthervorhebungen. unterstreichen, kursiv, fett, farbig, etc..
+\usepackage{xcolor} %Farben im Dokument
+\usepackage{setspace} %Zeilenabstände
+\usepackage{geometry}
+\usepackage{scrpage2} %spezielle Kopf- und Fußzeilen
+
+\usepackage{hyperref} %PDF-Hyperlinks!!!
+
+\usepackage[tracking=true]{microtype}% Richtig gut!!! (lennart)
+            % Microtype ist einfach super, aber lesen Sie
+            % unbedingt die Anleitung um das Folgende zu
+            % verstehen.
+\DeclareMicrotypeSet*[tracking]{my}%
+  { font = */*/*/sc/* }%
+  \SetTracking{ encoding = *, shape = sc }{ 45 }% Hier wird festgelegt,
+              % dass alle Passagen in Kapitälchen automatisch leicht
+              % gesperrt werden. Das Paket soul, das ich früher empfohlen
+              % habe ist damit für diese Zwecke nicht mehr nötig.
+%%% END Pakete laden %%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% BEGIN Einstellungen %%%
+\label{Einstellungen}
+%%%
+
+\onehalfspacing%Zeilenabstände
+
+\pagestyle{scrheadings} %spezielle Kopf- und Fußzeilen
+\setheadsepline{.4pt} %per Strich separierte Kopf- und Fußzeilen
+
+%\geometry{left=25mm,right=25mm,top=25mm,bottom=20mm,bindingoffset=6mm}
+%\geometry{includeheadfoot} %Einbindung der Kopf- und Fußzeile in die definierten Randbreiten
+\sloppypar%eher verwenden.
+%\sloppy %Großzügige Zeilenumbrüche, weniger Worttrennungen
+%\graphicspath{{img/}} %Unterverzeichnis der verwendeten Bilder/Grafiken
+
+%%% END Einstellungen %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% BEGIN \newcommand %%%
+\label{newcommand}
+%%%
+
+\newcommand{\changefont}[3]{\fontfamily{#1}\fontseries{#2}\fontshape{#3}\selectfont}
+%\changefont{cmtt}{m}{n} und smr für "normale schrift"
+
+\newcommand{\hlink}[1]{\mbox{\color{black}
+\changefont{cmtt}{m}{n}\href{#1}{#1}}}
+%für links mit anderer schrift. Greift auf anderes Makro zu.
+
+\newcommand{\hlinktwo}[2]{\mbox{\color{black}
+\changefont{cmtt}{m}{n}\href{#1}{#2}}}
+%für links mit anderer schrift. Greift auf anderes Makro zu.
+
+\newcommand{\ftwo}[1]{{\changefont{cmtt}{m}{n}{\color{red}#1}}}
+%ändert die Schriftart in die der Links. Greift auf anderes Makro zu.
+
+
+
+\newcommand{\img}[4]{
+\begin{figure}[H]
+\centering
+\includegraphics[width=#3\linewidth]{#1}
+\caption{#2}
+#4
+\end{figure}
+}
+
+%%% END \newcommand %%%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% \usepackage{DejaVuSansMono}
+%% Another possibility is
+% \usepackage{dejavu}
+ \usepackage{libertine}
+%% which loads the DejaVu Serif and DejaVu Sans fonts as well
+ %\renewcommand*\familydefault{\ttdefault} %% Only if the base font of the
+%document is to be typewriter style
+%\renewcommand*\familydefault{\sfdefault}
+
+\usepackage{wrapfig}
+
+
+
+\begin{document}
+%\pagestyle{empty}
+%\singlespacing%
+\section*{\Huge hamburg.\\freifunk.\\net}
+
+\section*{Liebe Mitbewohner,}
+Im Haus ist das offene WLAN \textbf{hamburg.freifunk.net} verfügbar. Jeder ist
+herzlich eingeladen es zu benutzen!\\
+\\
+Freifunk hat zum Ziel freie, kostenlose, unabhängige und nichtkommerzielle
+Computer-Funknetze zu etablieren. Jedem Nutzer soll ein freier Zugang
+ermöglicht weren, zum Netzwerk und zum Internet.\\
+\\
+Wenn Du dich dafür interessierst, mitmachen möchtest oder einfach nur Fragen
+hast, dann bist Du herzlich eingeladen dich bei mir zu melden (einfach
+anklopfen oder eine Nachricht zukommen lassen).\\
+\\
+Nähere Informationen zum Projekt gibt es auf:\\
+\texttt{\small http://hamburg.freifunk.net}\,.
+\vfill
+Lieben Gruß,\\
+Lennart Heino\\
+(Erster Stock rechts)
+\end{document}
